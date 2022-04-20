@@ -1,0 +1,169 @@
+<div class="container-fluid">
+    <h1 style="text-align: center;">Ticket Booking</h1>
+
+    <div class="row jumbotron">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="tel" (keypress)="checkNum($event)" placeholder="Enter No of Seat You want to Book"
+                    name="no_of_seat" id="nos" maxlength="1" class="form-control" [(ngModel)]="model.no_of_seat"
+                    required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="submit" value="Book" class="btn btn-primary" style="width: 300px; cursor: pointer;"
+                    (click)="bookSeat()">
+            </div>
+
+        </div>
+    </div>
+    <div class="row" *ngIf="result?.length>0">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h3>Your Reserve Seat are showing below:</h3>
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">category</th>
+                    <th scope="col">Seat Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of result">
+                    <td>{{obj.category}}</td>
+                    <td>{{obj.seat}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <hr>
+    <div class="row jumbotron">
+
+        <ng-container *ngFor="let data of completeData; let i=index;">
+
+            <!-- <div class="col-md-2" *ngIf="i<=4; then rowcol2;" > -->
+
+            <div class="col-md-2" *ngIf="i<=4">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=5 && i<=6">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=7 && i<=11">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=12 && i<=13">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=14 && i<=18">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=19 && i<=20">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=21 && i<=25">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=26 && i<=27">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=28 && i<=32">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=33 && i<=34">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=35 && i<=39">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=40 && i<=41">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=42 && i<=46">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=47 && i<=48">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=49 && i<=53">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=54 && i<=55">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=56 && i<=60">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=61 && i<=62">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=63 && i<=67">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=68 && i<=69">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=70 && i<=74">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-1" *ngIf="i>=75 && i<=76">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+            <div class="col-md-2" *ngIf="i>=77 && i<=79">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}" (click)="getID(data.id)">
+                    {{data.seat}}</p>
+            </div>
+
+
+            <!-- <ng-template #rowcol2>
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}">{{data.seat}}</p>
+
+            </ng-template> -->
+            <!-- <ng-template #rowcol1>
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}">{{data.seat}}</p>
+
+            </ng-template> -->
+            <!-- <div class="col-md-1" *ngIf="i==8">
+                <p class="seatstyle" [ngClass]="{'seatreserve':data.reserve_status==1}">{{data.seat}}</p>
+            </div> -->
+        </ng-container>
+
+        <!-- <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <p class="seatstyle" *ngFor="let data of completeData">
+                        <span *ngFor=""></span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+
+                </div> -->
+    </div>
+</div>
